@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flexbox Examples</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      .flex-container {
+        display: flex;
+        background: #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        min-height: 100px;
+        margin-bottom: 10px;
+      }
+      .flex-item {
+        background: #4caf50;
+        color: white;
+        padding: 20px;
+        margin: 5px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Flexbox Training Examples</h1>
+
+    <!-- flex-direction -->
+    <div class="section">
+      <h2>1. flex-direction</h2>
+      <div class="flex-container" style="flex-direction: row">
+        <div class="flex-item">Row 1</div>
+        <div class="flex-item">Row 2</div>
+        <div class="flex-item">Row 3</div>
+      </div>
+      <div class="flex-container" style="flex-direction: column">
+        <div class="flex-item">Col 1</div>
+        <div class="flex-item">Col 2</div>
+        <div class="flex-item">Col 3</div>
+      </div>
+    </div>
+
+    <!-- justify-content -->
+    <div class="section">
+      <h2>2. justify-content</h2>
+      <div class="flex-container" style="justify-content: flex-start">
+        <div class="flex-item">Start</div>
+        <div class="flex-item">Start</div>
+        <div class="flex-item">Start</div>
+      </div>
+      <div class="flex-container" style="justify-content: center">
+        <div class="flex-item">Center</div>
+        <div class="flex-item">Center</div>
+        <div class="flex-item">Center</div>
+      </div>
+      <div class="flex-container" style="justify-content: space-between">
+        <div class="flex-item">Between</div>
+        <div class="flex-item">Between</div>
+        <div class="flex-item">Between</div>
+      </div>
+    </div>
+
+    <!-- align-items -->
+    <div class="section">
+      <h2>3. align-items</h2>
+      <div
+        class="flex-container"
+        style="align-items: flex-start; height: 150px"
+      >
+        <div class="flex-item" style="height: 40px">Top</div>
+        <div class="flex-item" style="height: 70px">Top</div>
+        <div class="flex-item" style="height: 100px">Top</div>
+      </div>
+      <div class="flex-container" style="align-items: center; height: 150px">
+        <div class="flex-item" style="height: 40px">Center</div>
+        <div class="flex-item" style="height: 70px">Center</div>
+        <div class="flex-item" style="height: 100px">Center</div>
+      </div>
+    </div>
+
+    <!-- flex-wrap -->
+    <div class="section">
+      <h2>4. flex-wrap</h2>
+      <div class="flex-container" style="flex-wrap: nowrap">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+      <div class="flex-container" style="flex-wrap: wrap">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+    </div>
+
+    <!-- align-content -->
+    <div class="section">
+      <h2>5. align-content (with flex-wrap)</h2>
+      <div
+        class="flex-container"
+        style="flex-wrap: wrap; align-content: space-around; height: 200px"
+      >
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+    </div>
+
+    <!-- flex-grow / flex-shrink / flex-basis -->
+    <!-- 
+        The flex shorthand sets three properties together for a flex item:
+
+        php-template
+        Copy
+        Edit
+        flex: <flex-grow> <flex-shrink> <flex-basis>;
+        Where:
+
+        flex-grow → How much an item should grow compared to other items when extra space is available.
+
+        0 = don’t grow (default)
+
+        Higher number = grows more
+
+        flex-shrink → How much an item should shrink compared to others when space is too small.
+
+        0 = don’t shrink
+
+        Higher number = shrinks faster
+
+        flex-basis → The starting size of the item before growing or shrinking.
+
+        Can be px, %, auto
+
+        Think of it like a preferred width/height in the flex direction
+
+ -->
+    <div class="section">
+      <h2>6. flex-grow / flex-shrink / flex-basis</h2>
+      <div class="flex-container">
+        <div class="flex-item" style="flex: 1 1 100px">1</div>
+        <div class="flex-item" style="flex: 2 1 100px">2 (grows more)</div>
+        <div class="flex-item" style="flex: 1 2 100px">3 (shrinks more)</div>
+      </div>
+    </div>
+
+    <!-- order -->
+    <div class="section">
+      <h2>7. order</h2>
+      <div class="flex-container">
+        <div class="flex-item" style="order: 3">1 (last)</div>
+        <div class="flex-item" style="order: 1">2 (first)</div>
+        <div class="flex-item" style="order: 2">3 (middle)</div>
+      </div>
+    </div>
+
+    <!-- gap -->
+    <div class="section">
+      <h2>8. gap</h2>
+      <div class="flex-container" style="gap: 20px">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+      </div>
+    </div>
+  </body>
+</html>

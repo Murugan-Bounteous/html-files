@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Positions Task</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+  }
+
+  /* Sticky header */
+  .header {
+    background: teal;
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Profile card */
+  .profile-card {
+    position: relative; /* Makes absolute child (badge) relative to this */
+    width: 300px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .profile-card img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Absolute badge */
+  .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: crimson;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+
+  .profile-card p {
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  /* Fixed help button */
+  .help-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: orange;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="header">My Sticky Header</header>
+
+<div class="profile-card">
+  <img src="https://placehold.co/300x200" alt="Profile">
+  <span class="badge">NEW</span>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+
+<div class="profile-card">
+  <img src="https://placehold.co/300x200" alt="Profile">
+  <span class="badge">NEW</span>
+  <p>Scroll to see sticky header in action.</p>
+</div>
+
+<div class="profile-card">
+  <img src="https://placehold.co/300x200" alt="Profile">
+  <span class="badge">HOT</span>
+  <p>This is another profile card to make scrolling easier.</p>
+</div>
+
+<button class="help-btn">Help</button>
+
+</body>
+</html>

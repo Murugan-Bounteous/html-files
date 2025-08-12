@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocation API with Logs</title>
+  <!-- The Geolocation API is considered an HTML5 feature because it was standardized by W3C and 
+  WHATWG alongside HTML5, which was not just about introducing new tags but served as an umbrella term 
+  for a new generation of web platform features. It is built into browsers natively, eliminating the 
+  need for plugins like Flash or Java applets, and integrates seamlessly with HTML and CSS, 
+  where HTML and CSS handle the UI while JavaScript provides the functionality. 
+  This aligns with HTML5’s goal of enabling richer, more app-like web experiences, 
+  and geolocation plays a key role in location-based services that HTML4 could not support natively. -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<h2>Geolocation API Demo</h2>
+<button onclick="getLocation()">Get My Location</button>
+<div id="output">Click the button to fetch location.</div>
+
+<script>
+  function getLocation() {
+    const output = document.getElementById("output");
+
+    if (!navigator.geolocation) {
+      output.textContent = "❌ Geolocation is not supported by your browser.";
+      console.error("Geolocation is not supported by this browser.");
+      return;
+    }
+
+    console.log("📡 Requesting current position...");
+
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        console.log("✅ Location fetched successfully!");
+        console.log("Full Position Object:", position);
+
+        const { latitude, longitude, accuracy, altitude, altitudeAccuracy, heading, speed } = position.coords;
+
+        console.log("Latitude:", latitude);
+        console.log("Longitude:", longitude);
+        console.log("Accuracy (m):", accuracy);
+        console.log("Altitude:", altitude);
+        console.log("Altitude Accuracy:", altitudeAccuracy);
+        console.log("Heading:", heading);
+        console.log("Speed (m/s):", speed);
+        console.log("Timestamp:", new Date(position.timestamp));
+
+        output.innerHTML = `
+          <strong>Latitude:</strong> ${latitude} <br>
+          <strong>Longitude:</strong> ${longitude} <br>
+          <strong>Accuracy:</strong> ${accuracy} meters <br>
+          <strong>Altitude:</strong> ${altitude ?? "Not available"} <br>
+          <strong>Heading:</strong> ${heading ?? "Not available"} <br>
+          <strong>Speed:</strong> ${speed ?? "Not available"} m/s <br>
+          <strong>Time:</strong> ${new Date(position.timestamp).toLocaleString()}
+        `;
+      },
+      function (error) {
+        console.error("❌ Error fetching location:", error);
+        let message;
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            message = "User denied the request for Geolocation.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            message = "Location information is unavailable.";
+            break;
+          case error.TIMEOUT:
+            message = "The request to get user location timed out.";
+            break;
+          default:
+            message = "An unknown error occurred.";
+        }
+        output.innerHTML = `<span style="color:red;">${message}</span>`;
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      }
+    );
+  }
+</script>
+
+</body>
+</html>

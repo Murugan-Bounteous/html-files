@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Positions Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    height: 2000px; /* for scrolling demo */
+  }
+
+  h2 {
+    margin-top: 50px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+  }
+
+  .box {
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+  }
+
+  /* Static */
+  .static {
+    background: #888;
+    position: static;
+  }
+
+  /* Relative */
+  .relative {
+    background: #f39c12;
+    position: relative;
+    top: 20px;
+    left: 20px;
+  }
+
+  /* Absolute inside relative container */
+  .relative-container {
+    position: relative;
+    height: 200px;
+    border: 2px dashed #333;
+    margin-top: 20px;
+  }
+  .absolute {
+    background: #e74c3c;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+  }
+
+  /* Fixed */
+  .fixed {
+    background: #27ae60;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  /* Sticky */
+  .sticky {
+    background: #2980b9;
+    position: sticky;
+    top: 0;
+  }
+</style>
+</head>
+<body>
+
+<h2>Static Position</h2>
+<div class="box static">Static</div>
+
+<h2>Relative Position</h2>
+<div class="box relative">Relative</div>
+
+<h2>Absolute Position (inside relative container)</h2>
+<div class="relative-container">
+  <div class="box absolute">Absolute</div>
+</div>
+
+<h2>Sticky Position</h2>
+<div class="box sticky">Sticky Header</div>
+<p>Scroll down to see sticky effect...</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet...</p>
+
+<h2>Fixed Position</h2>
+<p>Scroll down to see the fixed element in bottom-right corner.</p>
+<div class="box fixed">Fixed</div>
+
+</body>
+</html>

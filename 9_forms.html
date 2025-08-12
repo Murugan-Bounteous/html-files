@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Example</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        small {
+            color: #555;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="#" method="post">
+        <h2>Registration Form</h2>
+
+        <!-- Name -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+        <!-- Email -->
+        <label for="email">Email Address:</label>
+        <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Enter a valid email address">
+
+        <!-- Password -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8" autocomplete="off">
+        <small>Minimum 8 characters</small>
+
+        <!-- Quantity -->
+        <label for="quantity">Quantity (1-5):</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" max="5" required autocomplete="off">
+
+        <!-- Meeting Date -->
+        <label for="meeting">Meeting Date & Time:</label>
+        <input type="datetime-local" id="meeting" name="meeting" required autocomplete="off">
+
+        <!-- Satisfaction -->
+        <label for="satisfaction">Satisfaction Level:</label>
+        <input type="range" id="satisfaction" name="satisfaction" min="0" max="10" step="1" value="5">
+        <small>0 = Very Dissatisfied, 10 = Very Satisfied</small>
+
+        <!-- Country -->
+        <label for="country">Country:</label>
+        <select id="country" name="country" autocomplete="country">
+            <option value="">-- Select Country --</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Australia</option>
+        </select>
+
+        <!-- Comments -->
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" placeholder="Enter your comments here..." rows="4"></textarea>
+
+        <!-- Submit -->
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>

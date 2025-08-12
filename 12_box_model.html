@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Box Model Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 30px;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .box {
+    background-color: #cce5ff; /* Content background */
+    width: 200px;
+    padding: 30px;
+    border: 10px solid #004085;
+    margin: 40px auto;
+    color: #004085;
+    font-size: 16px;
+    font-weight: bold;
+    box-sizing: content-box; /* default behavior */
+  }
+
+  /* Visual helpers */
+  .label {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* Colors for explanation */
+  .content {
+    background-color: #cce5ff;
+  }
+
+  .padding {
+    background-color: #b3d7ff;
+  }
+
+  .border {
+    background-color: #80bdff;
+  }
+
+  .margin {
+    background-color: #d6d8d9;
+  }
+
+  /* For visualizing layers */
+  .box-wrapper {
+    background: #d6d8d9; /* Margin layer */
+    padding: 40px; /* Simulating margin visually */
+  }
+  .border-layer {
+    background: #80bdff;
+    padding: 10px; /* Border thickness visually */
+  }
+  .padding-layer {
+    background: #b3d7ff;
+    padding: 30px; /* Padding size */
+  }
+  .content-layer {
+    background: #cce5ff;
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>CSS Box Model Demonstration</h1>
+
+<div class="box-wrapper">
+  <div class="border-layer">
+    <div class="padding-layer">
+      <div class="content-layer">
+        Content Area
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="label">Margin (gray) → Border (blue) → Padding (light blue) → Content (lightest blue)</p>
+
+</body>
+</html>

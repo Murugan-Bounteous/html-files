@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline, Internal & External CSS Example</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="4_styles.css">
+
+  <!-- Internal CSS -->
+  <style>
+    .internal-style {
+      background-color: lightblue;
+      color: darkblue;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Inline, Internal & External CSS Demo</h1>
+
+  <!-- Inline CSS Example -->
+  <p style="background-color: yellow; color: red; padding: 10px; border: 2px solid red;">
+    This paragraph is styled with <strong>INLINE CSS</strong>.
+  </p>
+
+  <!-- Internal CSS Example -->
+  <p class="internal-style">
+    This paragraph is styled with <strong>INTERNAL CSS</strong>.
+  </p>
+
+  <!-- External CSS Example -->
+  <p class="external-style">
+    This paragraph is styled with <strong>EXTERNAL CSS</strong>.
+  </p>
+
+</body>
+</html>

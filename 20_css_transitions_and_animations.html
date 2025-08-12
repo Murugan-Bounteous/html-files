@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Transitions & Animations</title>
+    <style>
+        /* 
+        selector {
+        transition: property duration timing-function delay;
+        } */
+         
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* Transition Example */
+        .transition-btn {
+            background: royalblue;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.4s ease, transform 0.3s ease;
+        }
+
+        .transition-btn:hover {
+            background: navy;
+            transform: scale(1.1);
+        }
+
+        /* Animation Example */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            background: tomato;
+            border-radius: 50%;
+            animation: bounce 1s ease-in-out infinite;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>CSS Transitions</h2>
+    <button class="transition-btn">Hover Me</button>
+
+    <h2>CSS Animations</h2>
+    <div class="ball"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity Demo</title>
+    <style>
+        /* Specificity Hierarchy
+        From lowest to highest priority:
+
+        Universal selector (*) → 0 points
+
+        Type selectors (p, div) → 1 point
+
+        Class selectors, attribute selectors, and pseudo-classes (.class, [type="text"], :hover) → 10 points
+        (Later rules with the same specificity overwrite earlier ones.)
+
+        ID selectors (#id) → 100 points
+
+        Inline styles (style="...") → 1000 points
+
+        !important → Overrides everything (but should be avoided unless absolutely necessary) */
+
+        /* Universal Selector (0 points) */
+        * {
+            color: gray;
+        }
+
+        /* Type Selector (1 point) */
+        p {
+            color: blue;
+        }
+
+        /* Class Selector (10 points) */
+        .highlight {
+            color: green;
+        }
+
+        /* ID Selector (100 points) */
+        #special {
+            color: red;
+        }
+
+        /* Combination Selector (111 points: 1 + 10 + 100) */
+        p#special.highlight {
+            color: pink;
+        }
+
+        /* Uncomment the next line to see !important override everything */
+        /* p { color: orange !important; } */
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Specificity Demo</h1>
+
+    <p id="special" class="highlight">
+        I am a paragraph. Which color will I be?
+    </p>
+
+    <p>Tip: Comment/uncomment rules in the &lt;style&gt; section to see which one wins.</p>
+
+</body>
+
+</html>

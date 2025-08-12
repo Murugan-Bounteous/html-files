@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pseudo-elements Example</title>
+<style>
+  .box {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #333;
+    position: relative;
+    background: #f9f9f9;
+  }
+
+  /* Add decorative content before */
+  .box::before {
+    content: "★ ";
+    color: gold;
+    font-size: 20px;
+  }
+
+  /* Add decorative content after */
+  .box::after {
+    content: " ✔";
+    color: green;
+  }
+
+  /* Style the first letter */
+  .box::first-letter {
+    font-size: 2em;
+    color: #d35400;
+    font-weight: bold;
+  }
+
+  /* Style the first line */
+  .box::first-line {
+    background-color: #fffae6;
+  }
+
+  /* Change selection color */
+  .box::selection {
+    background: yellow;
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <div class="box">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat nisl sit amet orci pretium, nec commodo massa mattis.
+  </div>
+</body>
+</html>

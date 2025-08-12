@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colours & Units Demo</title>
+<style>
+    /* :root has the same specificity weight as a class selector, so it can override some generic element selectors more easily */
+    /*  It’s common to put global CSS custom properties (variables) here, because :root makes them accessible everywhere. */
+    :root {
+        font-size: 16px; /* Base font-size for rem */
+    }
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    h2 {
+        margin-top: 40px;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+    }
+    .color-box {
+        display: inline-block;
+        width: 120px;
+        height: 80px;
+        margin: 10px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 6px;
+    }
+    /* Colour Examples */
+    .hex { background-color: #3498db; }
+    .rgb { background-color: rgb(231, 76, 60); }
+    .rgba { background-color: rgba(155, 89, 182, 0.7); }
+    .hsl { background-color: hsl(120, 60%, 50%); }
+    .hsla { background-color: hsla(45, 100%, 50%, 0.5); color: black; }
+
+    /* Units Examples */
+    .unit-box {
+        border: 2px solid #333;
+        margin: 10px 0;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+    .px { font-size: 20px; }
+    .em { font-size: 1.5em; }
+    .rem { font-size: 1.5rem; }
+    .percent { width: 50%; background: lightcoral; color: white; text-align: center; }
+    .vw { font-size: 5vw; background: lightseagreen; color: white; padding: 10px; }
+    .vh { height: 20vh; background: lightgoldenrodyellow; display: flex; align-items: center; justify-content: center; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<h1>Colours & Units Demo</h1>
+
+<h2>Colours</h2>
+<div class="color-box hex">HEX</div>
+<div class="color-box rgb">RGB</div>
+<div class="color-box rgba">RGBA</div>
+<div class="color-box hsl">HSL</div>
+<div class="color-box hsla">HSLA</div>
+
+<h2>Units</h2>
+<div class="unit-box px">Font size in px (20px)</div>
+<div class="unit-box em">Font size in em (1.5em, relative to parent)</div>
+<div class="unit-box rem">Font size in rem (1.5rem, relative to root)</div>
+<div class="unit-box percent">Width 50% (of parent)</div>
+<div class="unit-box vw">Font size in vw (5% of viewport width)</div>
+<div class="unit-box vh">Height in vh (20% of viewport height)</div>
+
+</body>
+</html>

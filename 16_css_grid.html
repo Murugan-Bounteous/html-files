@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Demo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f8f8f8;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 150px 1fr minmax(150px, 2fr);
+        grid-template-rows: 80px auto 60px;
+        gap: 10px;
+        grid-template-areas:
+            "header header header"
+            "sidebar main aside"
+            "footer footer footer";
+        border: 3px solid #333;
+        padding: 10px;
+        background: #fff;
+        height: 80vh;
+    }
+
+    /* Grid items */
+    .item {
+        padding: 20px;
+        color: #fff;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header { background: #6c5ce7; grid-area: header; }
+    .sidebar { background: #00b894; grid-area: sidebar; }
+    .main { background: #0984e3; grid-area: main; }
+    .aside { background: #e17055; grid-area: aside; }
+    .footer { background: #2d3436; grid-area: footer; }
+
+    /* Example: Spanning extra cells */
+    .extra {
+        background: #fdcb6e;
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 1;
+        color: #333;
+    }
+
+    /* Alignment examples */
+    .grid-container.align-demo {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(2, 100px);
+        justify-items: center;   /* items horizontally inside cells */
+        align-items: center;     /* items vertically inside cells */
+        justify-content: space-around; /* entire grid horizontally */
+        align-content: space-evenly;   /* entire grid vertically */
+    }
+
+    /* Auto-placement demo */
+    .auto-placement {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .auto-placement div {
+        background: #74b9ff;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>CSS Grid Demonstration</h1>
+
+<div class="grid-container">
+    <div class="item header">Header</div>
+    <div class="item sidebar">Sidebar</div>
+    <div class="item main">Main Content</div>
+    <div class="item aside">Aside</div>
+    <div class="item footer">Footer</div>
+</div>
+
+<h2>Alignment Demo (justify-items / align-items / justify-content / align-content)</h2>
+<div class="grid-container align-demo">
+    <div class="item" style="background:#ff7675;">1</div>
+    <div class="item" style="background:#55efc4;">2</div>
+    <div class="item" style="background:#ffeaa7;">3</div>
+    <div class="item" style="background:#74b9ff;">4</div>
+    <div class="item" style="background:#a29bfe;">5</div>
+    <div class="item" style="background:#fd79a8;">6</div>
+</div>
+
+<h2>Auto-placement Demo (grid-auto-flow with auto-fill)</h2>
+<div class="auto-placement">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+</div>
+
+</body>
+</html>

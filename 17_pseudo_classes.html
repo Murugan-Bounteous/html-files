@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo-class Demo</title>
+  <style>
+    /* STRUCTURAL */
+    ul.demo li:first-child { color: green; }
+    ul.demo li:last-child { color: red; }
+    ul.demo li:nth-child(even) { background: #f0f0f0; }
+    ul.demo li:only-child { font-weight: bold; }
+    p:nth-of-type(2) { font-style: italic; }
+    .placeholder:empty { border: 2px dashed orange; min-height: 1em; }
+
+    /* LOGICAL */
+    li:not(:first-child) { border-top: 1px solid #ccc; }
+    :is(h1, h2) { text-transform: uppercase; }
+    :where(.container p) { margin: 0; } /* zero specificity reset */
+    li:has(> a.active) { background: #ffe080; }
+  </style>
+</head>
+<body>
+
+<h1>Main Title</h1>
+<h2>Subtitle</h2>
+
+<ul class="demo">
+  <li>First Item</li>
+  <li>Second Item</li>
+  <li>Third Item</li>
+  <li><a class="active" href="#">Fourth (Active Link)</a></li>
+</ul>
+
+<div>
+  <p>First paragraph</p>
+  <span>Some span</span>
+  <p>Second paragraph (nth-of-type demo)</p>
+</div>
+
+<div class="placeholder"></div>
+
+</body>
+</html>

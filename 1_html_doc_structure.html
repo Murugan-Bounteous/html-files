@@ -1,0 +1,172 @@
+<!doctype html>
+<!-- Use HTML5 doctype for standards mode -->
+<html lang="en" dir="ltr">
+<head>
+  <!-- REQUIRED -->
+  <meta charset="utf-8"><!-- Must be early for correct parsing of characters -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- legacy IE opt-in (safe to include) -->
+
+  <!-- RESPONSIVE VIEWPORT -->
+  <!-- DO NOT disable zoom (user-scalable=no) — that harms accessibility -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- DOCUMENT TITLE + DESCRIPTION -->
+  <title>Example Site — Page Title</title>
+  <meta name="description" content="Short (≈50–155 chars) description used by search engines and sharing.">
+
+  <!-- ROBOTS / CRAWLING -->
+  <meta name="robots" content="index, follow">
+
+  <!-- SECURITY / PRIVACY HINTS (prefer HTTP headers, but meta fallbacks) -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Note: Content-Security-Policy is best set as HTTP header, not meta -->
+
+  <!-- MOBILE/THEME PWA -->
+  <meta name="theme-color" content="#0a84ff"><!-- browser UI color on mobile -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- SOCIAL / LINKED PREVIEW (Open Graph + Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Example Site — Page Title">
+  <meta property="og:description" content="Same short description (or tailored).">
+  <meta property="og:url" content="https://example.com/current-page">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yourhandle">
+
+  <!-- CANONICAL / MULTILINGUAL -->
+  <link rel="canonical" href="https://example.com/current-page">
+  <!-- Use hreflang links on multilingual sites -->
+
+  <!-- FAVICONS & APPLE TOUCH ICONS -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- PERFORMANCE HINTS -->
+  <!-- Preconnect to critical origins (fonts, analytics) to reduce handshake time -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- Preload critical assets (hero image, fonts). Use absolute URLs and correct crossorigin when needed. -->
+  <!-- Example: preload a webfont. Ensure font-face in CSS uses same URL & crossorigin. -->
+  <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Preload largest contentful image if it is critical to LCP -->
+  <link rel="preload" as="image" href="/images/hero.jpg">
+
+  <!-- RESET / NORMALIZE first -->
+  <link rel="stylesheet" href="/css/modern-normalize.css">
+  <!-- MAIN STYLES (consider critical CSS inlined for above-the-fold) -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Optional: structured data for SEO (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"https://example.com",
+    "name":"Example Site"
+  }
+  </script>
+
+  <!-- Avoid inline scripts in head unless necessary for critical functionality (CSP reasons) -->
+</head>
+<body>
+  <!-- SKIP LINK for keyboard users -->
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;">
+    Skip to content
+  </a>
+
+  <!-- SITE HEADER / NAV -->
+  <header role="banner">
+    <div class="site-branding">
+      <a href="/" aria-label="Homepage">
+        <img src="/logo.svg" alt="Example Site logo" width="120" height="40">
+      </a>
+    </div>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN (exactly one main element per page) -->
+  <main id="main" role="main">
+    <article aria-labelledby="article-title">
+      <header>
+        <h1 id="article-title">Article / Page title</h1>
+        <p class="byline">By <a href="/author/">Author</a> · <time datetime="2025-08-11">Aug 11, 2025</time></p>
+      </header>
+
+      <!-- RESPONSIVE IMAGE example using <picture> + srcset + sizes -->
+      <figure>
+        <picture>
+          <source media="(min-width:1200px)" srcset="/images/hero-1200.jpg">
+          <source media="(min-width:600px)" srcset="/images/hero-800.jpg">
+          <img src="/images/hero-400.jpg"
+               alt="Descriptive alt text"
+               width="1200" height="600"
+               loading="lazy"
+               style="max-width:100%;height:auto;display:block;"
+               decoding="async">
+        </picture>
+        <figcaption>Caption describing the image for context.</figcaption>
+      </figure>
+
+      <section>
+        <h2>Section heading</h2>
+        <p>Body copy…</p>
+      </section>
+
+      <!-- ACCESSIBLE FORM -->
+      <section aria-labelledby="signup-title">
+        <h2 id="signup-title">Sign up</h2>
+        <form action="/subscribe" method="post" autocomplete="on" novalidate>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" required
+                 placeholder="name@example.com" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+    </article>
+
+    <!-- ASIDE / RELATED CONTENT -->
+    <aside role="complementary" aria-label="Related">
+      <h3>Related</h3>
+      <ul>
+        <li><a href="/related-1">Related item 1</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer role="contentinfo">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+    <p>&copy; 2025 Example Site</p>
+  </footer>
+
+  <!-- SCRIPTS: Prefer defer to avoid blocking parsing; module for modern browsers -->
+  <script type="module" src="/js/main.mjs" defer></script>
+  <!-- Legacy fallback (nomodule) -->
+  <script nomodule src="/js/legacy.js" defer></script>
+
+  <!-- Service worker registration for PWA (progressive enhancement) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+    }
+  </script>
+
+  <!-- noscript fallback for critical UI -->
+  <noscript>
+    <div class="no-js-notice">This site works better with JavaScript enabled.</div>
+  </noscript>
+</body>
+</html>

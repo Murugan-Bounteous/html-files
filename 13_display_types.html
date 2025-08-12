@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Display Types Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
+  }
+
+  h2 {
+    margin-top: 40px;
+    color: #333;
+  }
+
+  .box {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* 1. Block */
+  .block {
+    display: block;
+    width: 200px;
+  }
+
+  /* 2. Inline */
+  .inline {
+    display: inline;
+    width: 200px; /* ignored */
+    background: #2196F3;
+  }
+
+  /* 3. Inline-block */
+  .inline-block {
+    display: inline-block;
+    width: 150px;
+    background: #FF9800;
+  }
+
+  /* 4. None */
+  .none {
+    display: none; /* will not appear */
+  }
+
+  /* 5. Flex */
+  .flex-container {
+    display: flex;
+    gap: 10px;
+    background: #ddd;
+    padding: 10px;
+  }
+
+  /* 6. Grid */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #ddd;
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>CSS Display Types</h1>
+
+<h2>1. Block</h2>
+<div class="box block">Block Element 1</div>
+<div class="box block">Block Element 2</div>
+
+<h2>2. Inline</h2>
+<span class="box inline">Inline 1</span>
+<span class="box inline">Inline 2</span>
+<span class="box inline">Inline 3</span>
+
+<h2>3. Inline-block</h2>
+<span class="box inline-block">Inline-block 1</span>
+<span class="box inline-block">Inline-block 2</span>
+<span class="box inline-block">Inline-block 3</span>
+
+<h2>4. None (Hidden)</h2>
+<div class="box none">You can't see me</div>
+
+<h2>5. Flex</h2>
+<div class="flex-container">
+  <div class="box">Flex 1</div>
+  <div class="box">Flex 2</div>
+  <div class="box">Flex 3</div>
+</div>
+
+<h2>6. Grid</h2>
+<div class="grid-container">
+  <div class="box">Grid 1</div>
+  <div class="box">Grid 2</div>
+  <div class="box">Grid 3</div>
+  <div class="box">Grid 4</div>
+  <div class="box">Grid 5</div>
+  <div class="box">Grid 6</div>
+</div>
+
+</body>
+</html>

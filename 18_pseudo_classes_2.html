@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pseudo-Classes Demo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f7f7f7;
+    }
+    h2 {
+        border-bottom: 2px solid #ccc;
+        margin-top: 40px;
+        padding-bottom: 4px;
+    }
+    /* Interaction Pseudo-classes */
+    .btn {
+        background: #077;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+        background: #055;
+    }
+    .btn:active {
+        background: #033;
+    }
+    .btn:focus-visible {
+        outline: 3px solid gold;
+    }
+
+    /* Link states */
+    a:link { color: blue; }
+    a:visited { color: purple; }
+    a:hover { text-decoration: underline; }
+    a:active { color: red; }
+
+    /* Structural pseudo-classes */
+    ul.zebra li:nth-child(odd) {
+        background: #e0f7fa;
+    }
+    ul.zebra li:nth-child(even) {
+        background: #ffe0b2;
+    }
+    ul.zebra li:first-child {
+        font-weight: bold;
+    }
+    ul.zebra li:last-child {
+        border-bottom: 3px solid #000;
+    }
+
+    /* Form state pseudo-classes */
+    form input:required {
+        border-left: 4px solid orange;
+    }
+    form input:valid {
+        background: #e8f5e9;
+    }
+    form input:invalid {
+        background: #ffebee;
+    }
+    form input:disabled {
+        background: #ddd;
+        color: #999;
+    }
+    form input:checked + label {
+        color: green;
+        font-weight: bold;
+    }
+
+    /* Focus-within example */
+    .focus-box {
+        border: 2px solid #999;
+        padding: 10px;
+    }
+    .focus-box:focus-within {
+        border-color: #00f;
+        background: #e3f2fd;
+    }
+
+    /* Negation and is/where example */
+    .list-example li:not(.special) {
+        color: #444;
+    }
+    .list-example li:is(.special, .highlight) {
+        background: #c8e6c9;
+    }
+
+    /* Target example */
+    :target {
+        outline: 3px dashed red;
+        outline-offset: 5px;
+    }
+
+    /* Empty example */
+    .empty-box:empty {
+        background: #ffcdd2;
+        height: 20px;
+        width: 200px;
+    }
+
+    /* has() example (requires modern browser) */
+    .parent:has(.child) {
+        border: 2px solid green;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Pseudo-Classes Demo</h1>
+
+<h2>1. Interaction</h2>
+<button class="btn">Hover, Click, or Tab to me</button>
+
+<h2>2. Links</h2>
+<p>
+    <a href="#section3">Go to Section 3 (same page)</a> |
+    <a href="https://example.com">External Link</a>
+</p>
+
+<h2>3. Structural (nth-child, first/last-child)</h2>
+<ul class="zebra">
+    <li>First Item</li>
+    <li>Second Item</li>
+    <li>Third Item</li>
+    <li>Fourth Item</li>
+    <li>Last Item</li>
+</ul>
+
+<h2>4. Forms (required, valid, invalid, disabled, checked)</h2>
+<form>
+    <p><input type="text" placeholder="Required field" required></p>
+    <p><input type="email" placeholder="Enter valid email" required></p>
+    <p><input type="text" value="Disabled field" disabled></p>
+    <p>
+        <input type="checkbox" id="check1"><label for="check1">Accept terms</label>
+    </p>
+</form>
+
+<h2>5. Focus-within</h2>
+<div class="focus-box">
+    <input type="text" placeholder="Click inside this box">
+</div>
+
+<h2>6. :not(), :is()</h2>
+<ul class="list-example">
+    <li>Normal item</li>
+    <li class="special">Special item</li>
+    <li class="highlight">Highlighted item</li>
+</ul>
+
+<h2 id="section3">7. :target</h2>
+<p>This section gets outlined when linked via URL fragment.</p>
+
+<h2>8. :empty</h2>
+<div class="empty-box"></div>
+
+<h2>9. :has()</h2>
+<div class="parent">
+    <div class="child">I am a child</div>
+</div>
+
+</body>
+</html>

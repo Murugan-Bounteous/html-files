@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Report Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    caption {
+      caption-side: top;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    tfoot td {
+      font-weight: bold;
+      background-color: #e6ffe6;
+    }
+
+    /* Responsive: Table scrolls horizontally on small screens */
+    .table-container {
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="table-container">
+  <table>
+    <caption>Quarterly Sales Report - 2025</caption>
+    <thead>
+      <tr>
+        <th scope="col">Region</th>
+        <th scope="col">Q1 Sales</th>
+        <th scope="col">Q2 Sales</th>
+        <th scope="col">Q3 Sales</th>
+        <th scope="col">Q4 Sales</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">North</th>
+        <td>₹12,000</td>
+        <td>₹15,000</td>
+        <td>₹14,500</td>
+        <td>₹16,000</td>
+        <td>₹57,500</td>
+      </tr>
+      <tr>
+        <th scope="row">South</th>
+        <td>₹10,500</td>
+        <td>₹12,200</td>
+        <td>₹11,800</td>
+        <td>₹13,000</td>
+        <td>₹47,500</td>
+      </tr>
+      <tr>
+        <th scope="row">East</th>
+        <td colspan="2">₹25,000</td> <!-- Colspan merges Q1 and Q2 -->
+        <td>₹13,500</td>
+        <td>₹15,200</td>
+        <td>₹53,700</td>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">West</th> <!-- Rowspan merges two rows -->
+        <td>₹9,800</td>
+        <td>₹11,000</td>
+        <td>₹12,300</td>
+        <td>₹13,700</td>
+        <td>₹46,800</td>
+      </tr>
+      <tr>
+        <!-- Second row under West region -->
+        <td>₹10,200</td>
+        <td>₹10,800</td>
+        <td>₹12,000</td>
+        <td>₹14,000</td>
+        <td>₹47,000</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5">Grand Total</td>
+        <td>₹252,500</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+</body>
+</html>
