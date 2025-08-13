@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Layout – Featured + Grid</title>
+  <style>
+    :root {
+      --bg: #0f172a;          /* slate-900 */
+      --card: #111827;        /* gray-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --brand: #60a5fa;       /* blue-400 */
+      --radius: 14px;
+      --gap: 18px;
+    }
+
+    /* Reset-ish */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -20%, #0b2046 0%, transparent 60%) ,
+                  radial-gradient(1200px 600px at 100% -20%, #0b3a37 0%, transparent 60%),
+                  var(--bg);
+    }
+    img { display: block; width: 100%; height: auto; border-radius: calc(var(--radius) - 4px); }
+    a { color: inherit; text-decoration: none; }
+
+    /* Page header */
+    .page {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .title {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 20px 0;
+      letter-spacing: -0.02em;
+    }
+    .title span {
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .title h1 {
+      font-size: clamp(1.6rem, 2.2vw + 1rem, 2.4rem);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    /* Cards */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+    }
+    .card .thumb {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .card .content {
+      padding: 14px 16px 8px;
+    }
+    .card .content h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .tags {
+      display: flex;
+      gap: 8px;
+      padding: 0 16px 16px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(96, 165, 250, 0.15);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      font-size: 0.8rem;
+      color: #cde3ff;
+    }
+
+    /* Hover */
+    .card:hover {
+      border-color: rgba(96,165,250,0.35);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+      transition: 200ms ease;
+    }
+
+    /* Featured article spans 2 columns */
+    .card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    .card.featured .thumb { aspect-ratio: 21/9; }
+    .card.featured .content h3 {
+      font-size: clamp(1.1rem, 1vw + 1rem, 1.6rem);
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(90deg, #60a5fa, #34d399);
+      color: #0b1220;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* Responsive: 2 columns on tablets */
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+      .card.featured { grid-column: span 2; }
+    }
+
+    /* Responsive: single column on mobile */
+    @media (max-width: 560px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .card.featured { grid-column: span 1; }
+      .card .thumb { aspect-ratio: 16/10; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="title">
+      <span>Blog</span>
+      <h1>Featured + Grid Layout (CSS Grid)</h1>
+    </div>
+
+    <section class="blog-grid">
+
+      <!-- Featured Article (spans 2 columns) -->
+      <article class="card featured">
+        <span class="badge">Featured</span>
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1280&auto=format&fit=crop" alt="Sunrise over mountains" />
+        </a>
+        <div class="content">
+          <h3><a href="#">Designing Accessible, Responsive Grids Without the Headache</a></h3>
+          <p class="meta">By Priya Verma • 8 min read • Aug 2025</p>
+        </div>
+        <div class="tags">
+          <span class="tag">CSS Grid</span>
+          <span class="tag">Accessibility</span>
+          <span class="tag">Responsive</span>
+        </div>
+      </article>
+
+      <!-- Regular posts (equal-sized grid items by column) -->
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Laptop and code editor" />
+        </a>
+        <div class="content">
+          <h3><a href="#">A Pragmatic Guide to CSS Logical Properties</a></h3>
+          <p class="meta">By Raj • 5 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">CSS</span><span class="tag">i18n</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?q=80&w=1200&auto=format&fit=crop" alt="Color swatches and UI" />
+        </a>
+        <div class="content">
+          <h3><a href="#">Systemizing Your Design Tokens</a></h3>
+          <p class="meta">By Alina • 6 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Design</span><span class="tag">Tokens</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop" alt="Developer workspace" />
+        </a>
+        <div class="content">
+          <h3><a href="#">Grid vs Flex: Choosing the Right Tool</a></h3>
+          <p class="meta">By Maya • 4 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Grid</span><span class="tag">Flexbox</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1515876305429-1a0b0249f5f0?q=80&w=1200&auto=format&fit=crop" alt="Sticky notes and planning" />
+        </a>
+        <div class="content">
+          <h3><a href="#">12 Layout Patterns to Master in 2025</a></h3>
+          <p class="meta">By Chen • 7 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Layouts</span><span class="tag">Patterns</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Team collaboration" />
+        </a>
+        <div class="content">
+          <h3><a href="#">Scaling a Component Library With Grid</a></h3>
+          <p class="meta">By Divya • 5 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Components</span><span class="tag">DX</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1200&auto=format&fit=crop" alt="Abstract gradient shapes" />
+        </a>
+        <div class="content">
+          <h3><a href="#">From Breakpoints to Fluid Type & Space</a></h3>
+          <p class="meta">By Noor • 6 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Fluid</span><span class="tag">RWD</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Person presenting at whiteboard" />
+        </a>
+        <div class="content">
+          <h3><a href="#">Teaching Grid: Exercises That Click</a></h3>
+          <p class="meta">By Kavya • 3 min read</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Teaching</span><span class="tag">Workshop</span>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>
